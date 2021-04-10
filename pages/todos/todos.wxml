@@ -1,0 +1,40 @@
+<view class="container">
+    <!-- 头部 -->
+    <view class="header">
+        <image class="" src="../../images/02.jpg" bindtap="addTodoHandle" />
+        <input type="text" placeholder="anything here" value=" {{input}} " bindchange="inputChangeHandle" bindconfirm="addTodoHandle"/> <!-- bindconform 键盘输入点完成则触发时间 -->
+    </view>
+
+
+
+    <!-- todo和底部 -->
+    <block wx:if="{{ todos.length }}">  <!-- block无实际意义 此处用以控制整体显示 -->
+        <!-- todo项 -->
+        <view class="todos">
+            <view class="item{{item.completed ? ' completed' : '' }} " wx:for="{{ todos }}" bindtap="toggleTodoHandle" data-index="{{ index }}">
+            <icon class="" type="{{ item.completed ? 'success' : 'circle'}}"></icon>
+            <text>{{ item.name }}</text>
+            <icon type="clear" size="16" 
+            catchtap="removeTodoHandle" 
+            data-index="{{ index }}">
+            </icon>
+            <!-- catchtap用于阻止同时触发 只执行当前点击函数 防止冒泡 -->
+            </view>
+        </view>
+
+        <!-- 底部 -->
+        <view class="footer">
+            <text bindtap="toggleAllHandle">Toggle all</text>
+            <!-- 三元表达式控制单复数 -->
+            <!-- 没有未完成的则不显示 用wx:if判断 -->
+            <text wx:if="{{ leftCount }}"> {{ leftCount }} {{ leftCount > 1 ? 'items' : 'item' }} left</text>
+            <text bindtap="clearHandle">Clear completed</text>
+        </view>
+    </block>
+
+    <view wx:else>
+        <text>Add Something</text>
+    </view>
+
+
+</view>

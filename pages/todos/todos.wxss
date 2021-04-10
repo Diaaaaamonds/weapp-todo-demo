@@ -1,0 +1,59 @@
+.container {
+    border-top: 1rpx solid #e0e0e0;
+}
+
+.header {
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    margin: 20rpx;
+    padding: 10rpx;
+    border: 1rpx solid #e0e0e0;
+    border-radius: 10rpx;
+    box-shadow: 0 0 5rpx #e0e0e0;
+}
+
+.header image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+
+.todos {
+    width: 90vw;
+    border: 1rpx solid #e0e0e0;
+    border-radius: 10rpx;
+    box-shadow: 0 0 5rpx #e0e0e0;
+}
+
+.todos .item {
+    padding: 10rpx;
+    border-bottom: 1rpx solid #e0e0e0;
+    display: flex;
+    align-items: center;
+}
+
+.todos .item.completed text {
+    text-decoration: line-through;
+}
+
+.todos .item text {
+    flex: 1; /* 只设置中间文本flex占比 则其他部分为固定大小、中间占满 */
+    margin-left: 10rpx;
+    font-size: 30rpx;
+    color: #444;
+}
+
+.todos .item:last-child {
+    border-bottom: 0;
+}
+
+.footer{
+    width: 90vw;
+    display: flex;
+    justify-content: space-between; /* 宽度不同 用flex=1可能换行 这里用space-between */
+    margin: 20rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+
